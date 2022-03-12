@@ -1,0 +1,264 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #eae6df;
+  background-image: linear-gradient(180deg, #eae6df, #d1d7db);
+  display: flex;
+  justify-content: center;
+}
+
+div.media {
+  max-width: 330px;
+}
+
+div.media > a > img,
+div.media > video {
+  width: 100%;
+}
+
+a {
+  color: #027eb5;
+  text-decoration: none;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+}
+
+.screen-container {
+  text-align: left;
+  height: 100%;
+}
+
+/* Chat */
+
+.chat {
+  height: 100%;
+}
+
+.chat-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* User Bar */
+
+.user-bar {
+  height: 55px;
+  background: #005e54;
+  color: #fff;
+  padding: 10px 8px;
+  font-size: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.user-bar::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.user-bar div {
+  float: left;
+  transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+}
+
+.user-bar .name {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin: 0 0 0 8px;
+  white-space: nowrap;
+}
+
+.user-bar .status {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Conversation */
+
+.conversation {
+  flex-grow: 1;
+  background:
+    #efe7dd
+    url("https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg")
+    repeat;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.conversation ::-webkit-scrollbar {
+  transition: all 0.5s;
+  width: 5px;
+  height: 1px;
+  z-index: 10;
+}
+
+.conversation ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.conversation ::-webkit-scrollbar-thumb {
+  background: #b3ada7;
+}
+
+.conversation .conversation-container {
+  height: 100%;
+  box-shadow: inset 0 10px 10px -10px #000;
+  overflow-x: hidden;
+  padding: 0 16px;
+  margin-bottom: 5px;
+  padding-left: 9%;
+  padding-right: 9%;
+  padding-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.conversation .conversation-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Messages */
+
+.message {
+  color: #000;
+  clear: both;
+  line-height: 18px;
+  font-size: 15px;
+  padding: 8px;
+  position: relative;
+  margin: 8px 0;
+  max-width: 65%;
+  word-wrap: break-word;
+  z-index: -1;
+}
+
+.message::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.metadata {
+  display: inline-block;
+  float: right;
+  padding: 0 0 0 7px;
+  position: relative;
+  bottom: -8px;
+}
+
+.metadata .time {
+  color: hsl(202deg 12% 45%);
+  font-size: 11px;
+  display: inline-block;
+}
+
+.message:first-child {
+  margin: 16px 0 8px;
+}
+
+.message.received {
+  background: #fff;
+  border-radius: 0 5px 5px;
+  float: left;
+}
+
+.message.received .metadata {
+  padding: 0 0 0 16px;
+}
+
+.message.received::after {
+  border-width: 0 10px 10px 0;
+  border-color: transparent #fff transparent transparent;
+  top: 0;
+  left: -10px;
+}
+
+.message.sent {
+  background: #e1ffc7;
+  border-radius: 5px 0 5px 5px;
+  float: right;
+}
+
+.message.sent::after {
+  border-width: 0 0 10px 10px;
+  border-color: transparent transparent transparent #e1ffc7;
+  top: 0;
+  right: -10px;
+}
+
+div.center {
+  background-color: #fff;
+  margin: 50px auto;
+  width: 200px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 10px 16px;
+  clear: both;
+}
+
+@media screen and (min-width: 1441px) {
+  .page {
+    top: 19px;
+    width: 1396px;
+    height: calc(100% - 38px);
+    position: absolute;
+  }
+}
+
+/* Small Screens */
+
+@media (max-width: 768px) {
+  .screen-container {
+    border-radius: 0;
+    flex: none;
+    padding: 0;
+    max-width: none;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+
+  .screen-container > .chat {
+    visibility: visible;
+  }
+
+  .conversation {
+    height: calc(100vh - 55px);
+  }
+
+  .conversation .conversation-container {
+    height: calc(100vh - 120px);
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "google-voice-transformer",
+  "version": "0.1.0",
+  "description": "Convert Google Voice files from Google Takeout to be more readable",
+  "main": "app.js",
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://github.com/Clearmist/google-voice-transformer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Clearmist/google-voice-transformer"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "webpack && pkg build/app.js -o build/Release/gvt -t linux,macos,win",
+    "run": "node src/app.js",
+    "run-whatsapp": "node src/app.js --template whatsapp"
+  },
+  "pkg": {
+    "outputPath": "build"
+  },
+  "dependencies": {
+    "commander": "^9.0.0",
+    "cross-env": "^7.0.3",
+    "fast-glob": "^3.2.11",
+    "handbrake-js": "^6.0.0",
+    "node-html-parser": "^5.2.0",
+    "webpack": "^5.70.0"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "html-loader": "^3.1.0",
+    "pkg": "^5.5.2",
+    "stylelint": "^14.5.3",
+    "stylelint-config-standard": "^25.0.0",
+    "to-string-loader": "^1.2.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
